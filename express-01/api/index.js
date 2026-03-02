@@ -17,3 +17,5 @@ app.listen(port, () =>
       process.env.MESSAGE,
   ),
 );
+
+export default app;
