@@ -6,6 +6,10 @@ const app = express();
 const port = process.env.PORT ?? 3000;
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Servidor rodando!\n" + process.env.MESSAGE);
+});
+
 app.get("/random", (req, res) => {
   const numero = Math.floor(Math.random() * 100) + 1;
   res.send(`Número aleatório: ${numero}`);
