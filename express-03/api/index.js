@@ -1,6 +1,7 @@
 import "dotenv/config";
 import cors from "cors";
 import express from "express";
+import errorHandler from "./middlewares/errorHandler";
 
 import models, { sequelize } from "./models";
 import routes from "./routes";
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
+app.use(errorHandler);
 
 app.get("/", (req, res) => {
   res.send(
